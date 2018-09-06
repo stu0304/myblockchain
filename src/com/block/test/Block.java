@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class Block {
 
-	 public String hash;
-	    public String preHash;
-	    private String data;
-	    private long timeStamp;
-	    private int nonce;
+	    public String hash; //哈希码
+	    public String preHash; // 前置哈希码
+	    private String data;     // 块数据
+	    private long timeStamp;  // 时间戳
+	    private int nonce;  // 挖矿次数
 
 	    public Block(String data, String preHash) {
 	        this.data = data;
@@ -18,7 +18,8 @@ public class Block {
 	    }
 
 	    public String calculateHash() {
-	        String calculatedhash = StringUtil.applySha256(preHash + Long.toString(timeStamp) + Integer.toString(nonce) +
+	        String calculatedhash = StringUtil.applySha256(preHash + Long.toString(timeStamp) 
+	        + Integer.toString(nonce) +
 	                data);
 	        return calculatedhash;
 	    }
